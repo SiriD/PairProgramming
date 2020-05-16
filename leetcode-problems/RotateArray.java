@@ -1,5 +1,14 @@
 class RotateArray {
     public void rotate(int[] nums, int k) {
+        if(nums.length <=1){
+            return;
+        }
+        if(k == nums.length){
+            return;
+        }
+        if(k > nums.length){
+            k = k - nums.length;
+        }
         //outer loop - iterate k times
         for(int t = 0; t <= k-1; t++){
             //inner loop - iterate nums.length times. j starts from 1
