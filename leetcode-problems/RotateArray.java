@@ -10,7 +10,13 @@ class RotateArray {
                 nums[j] = x;
                 x = temp;
             }
-            nums[t] = temp;
+            int t1 = t;
+            while(t1 > 0){
+                int temp2 = nums[t1-1];
+                nums[t1] = temp2;
+                t1--;
+            }
+            nums[0] = temp;
         }
     }
 }
