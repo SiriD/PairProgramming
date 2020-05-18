@@ -1,21 +1,27 @@
 class RotateArray {
     public static void main(String[] args) {
-        int[] testArr = {4, 7, 5, 8, 10, 2, 6};
-        int[] result = rotateThisArray(testArr, 3);
+        int[] testArr = {4, 7, 5, 8};
+        rotateThisArray(testArr, 2);
+    }
 
-        for (int value : result) {
-            System.out.println(value);
+    static void rotateThisArray(int[] someArray, int step) {
+        step = step % someArray.length;
+        reverse(someArray, 0, someArray.length - 1);
+        reverse(someArray, 0, step - 1);
+        reverse(someArray, step, someArray.length - 1);
+
+        for(int i : someArray) {
+            System.out.println(i);
         }
     }
 
-    static int[] rotateThisArray(int[] someArray, int step) {
-        int[] result = new int[step];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = someArray[someArray.length - step + i];
-            someArray[someArray.length - step + i] = someArray[i];
-            someArray[i] = result[i];
+    static void reverse(int[] arr, int start, int end) {
+        while(start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
         }
-
-        return someArray;
     }
 }
