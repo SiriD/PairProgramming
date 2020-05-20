@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 class BuyAndSell {
@@ -32,21 +31,16 @@ class BuyAndSell {
         //          if(arr[i] < arr[j])
         //              profits{arr[j] - arr[i]}
         // get the max of profits
-        List<Integer> profits = new ArrayList<>();
-
+        int maxProfit = 0;
         for(int i = 0; i < integerList.size(); i++) {
             for(int j = i + 1; j < integerList.size(); j++) {
-                if(integerList.get(i) < integerList.get(j)) {
-                    profits.add(integerList.get(j) - integerList.get(i));
+                if((integerList.get(j) - integerList.get(i)) > maxProfit) {
+                    maxProfit = integerList.get(j) - integerList.get(i);
                 }
             }
         }
 
-        if (profits.isEmpty()){
-            return 0;
-        } else {
-            return Collections.max(profits);
-        }
+        return maxProfit;
     }
 
 }
